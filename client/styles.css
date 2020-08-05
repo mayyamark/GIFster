@@ -15,7 +15,6 @@ body {
 }
 nav {
   background-image: url(https://i.ibb.co/cNdRDky/unnamed.png);
-  /* background-color: rebeccapurple; */
   font-size: 33pt;
   display: grid;
   grid-template-columns: auto auto auto auto auto;
@@ -30,12 +29,9 @@ a[href="#"] {
   text-decoration: none;
   font-family: "rockwell";
   text-shadow: 3px 3px black;
-  /* color: silver; */
   color: white;
 }
 a[href="#"]:hover {
-  /* background-color: #33194c;
-  color: white; */
   background-color: white;
   color: black;
   text-shadow: 3px 3px silver;
@@ -93,7 +89,6 @@ a[href="#"]:hover {
 }
 #form-upload {
   background-image: url(https://i.ibb.co/cNdRDky/unnamed.png);
-  /* background: rebeccapurple; */
   border: 3px solid black;
   position: sticky;
   color: white;
@@ -150,17 +145,16 @@ label {
 }
 #single-gif-info {
   background-image: url(https://i.ibb.co/cNdRDky/unnamed.png);
-  background-blend-mode: difference;
-  background-color: #D3D3D3;;
-  position: fixed;
-  left: 0px;
-  top: 0px;
-  z-index: 5;
-  margin-left: 34%;
-  margin-top: 8%;
-  /* background-color: rebeccapurple; */
-  padding: 4%;
-  border-radius: 5%;
+    background-blend-mode: difference;
+    background-color: #D3D3D3;
+    position: fixed;
+    left: 30%;
+    top: 16%;
+    max-width: 40%;
+    min-width: 40%;
+    z-index: 1000;
+    padding: 4%;
+    border-radius: 5%;
   box-shadow: 0 7px 14px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgb(0 0 0);
 }
 img {
@@ -217,16 +211,10 @@ a[target="_blank"]:hover {
 }
 #random-gif-text {
   font-family: "rockwell";
-  /* color: #33194c;
-  text-shadow: 2px 2px silver; */
   color: white;
   text-shadow: 2px 2px black;
   padding: 2em;
 }
-/* #toast-container{
-  position: relative;
-  top: 14%;
-} */
 #loading-container {
   position: fixed;
   height: 100%;
