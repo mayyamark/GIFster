@@ -312,3 +312,8 @@ a[target="_blank"]:hover {
     transform: rotate(360deg);
   }
 }
+
+#toast-container{
+  position: absolute;
+  top: 14%;
+}
