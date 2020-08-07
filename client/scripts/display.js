@@ -67,7 +67,7 @@ const displaySingleGif = async (searchValue) => {
   const jsonSingleGif = await getGifInfo(searchValue);
   const singleGif = getSingleGifInfo(jsonSingleGif);
 
-  return singleGifView(singleGif[0], singleGif[1], singleGif[2], singleGif[3], singleGif[4], $mainDiv)
+  return singleGifView(singleGif[0], singleGif[1], singleGif[2], singleGif[3], singleGif[4], singleGif[5], $mainDiv)
 }
 
 /**

@@ -28,8 +28,9 @@ const gifView = (url, id, container) => {
  * @param { string } container Container to append the new <div> to.
  * @return { JQuery } The appended container.
  */
-const singleGifView = (url, id, username, title, originalUrl, container) => {
+const singleGifView = (url, id, username, title, datetime, originalUrl, container) => {
   const $div = $(container);
+  const date = moment(datetime).format('MMMM Do YYYY');
   return $div.append($('<div>')
       .attr('id', 'single-gif-info')
       .append($('<div>')
@@ -43,16 +44,18 @@ const singleGifView = (url, id, username, title, originalUrl, container) => {
           ))
       .append($('<div>')
           .attr('id', 'credentials')
+          .append($('<p>').text(date))
           .append($('<text>').text(username)))
       .append($('<div>')
           .attr('id', 'fav-and-link')
+          .append($('<div>')
+              .addClass('favourite-button')
+              .append($('<img>').addClass('btn-img').attr('src', 'https://www.freepnglogos.com/uploads/heart-png/emoji-heart-33.png')))
           .append($('<a>')
               .attr('href', originalUrl)
               .attr('target', '_blank')
               .text('Link to Giphy')))
-              .append($('<div>')
-              .addClass('favourite-button')
-              .append($('<img>').addClass('btn-img').attr('src', 'https://www.freepnglogos.com/uploads/heart-png/emoji-heart-33.png'))))
+      )
 }
 
 /**

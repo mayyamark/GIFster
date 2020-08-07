@@ -18,7 +18,7 @@ const getTrendingGifsInfo = (response) => {
 const getSingleGifInfo = (response) => {
   const { data } = response;
 
-  return [data.images.original.url, data.id, data.username, data.title, data.url]
+  return [data.images.original.url, data.id, data.username, data.title, data.import_datetime, data.url]
 }
 
 /**

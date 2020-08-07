@@ -194,9 +194,9 @@ a[target="_blank"] {
   color: white;
   font-weight: bold;
   padding: 0 0 3%;
-  font-size: 14pt;
+  font-size: 20pt;
   text-shadow: 2px 2px black;
-
+  font-variant: all-petite-caps;
   display: block;
 }
 a[target="_blank"]:hover {
@@ -205,7 +205,7 @@ a[target="_blank"]:hover {
   cursor: pointer;
 }
 #credentials{
-  padding: 1em 0;
+  padding: 3% 0 1% 0;
   font-size: 13pt;
 }
 #credentials > text{
@@ -214,9 +214,12 @@ a[target="_blank"]:hover {
   color: dimgray;
   text-shadow: 1px 1px black;
 }
+p{
+  font-variant: petite-caps;
+}
 .displayed-gif-no-click > text {
   display: block;
-  padding-bottom: 2em;
+  padding-bottom: 6%;
   font-size: 16pt;
   color: dimgray;
   text-shadow: 1px 1px black;
