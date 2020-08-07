@@ -55,5 +55,16 @@ $(() => {
 
   loadMoreWhenScrolling(scrollingCallback);
   doubleClickLike(doubleClickLikeCallback);
+
+  $(document).on('click', '#search', (ev) => {
+    ev.preventDefault();
+    $('#main').empty();
+    $('#main').append(
+      $(`<form id="submit-gif" style="display: inline-block">
+      <input type="text" id="searchInput" placeholder="Search by a keyword..">
+      <button type="submit">Search</button>
+  </form>`))
+  });
+  
 });
 

@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "rockwell";
 }
 ::-webkit-scrollbar {
   display: none;
@@ -15,7 +16,7 @@ body {
 }
 nav {
   background-image: url(https://i.ibb.co/cNdRDky/unnamed.png);
-  font-size: 33pt;
+  font-size: 30pt;
   display: grid;
   grid-template-columns: auto auto auto auto auto;
   grid-column-gap: 4%;
@@ -30,6 +31,7 @@ a[href="#"] {
   font-family: "rockwell";
   text-shadow: 3px 3px black;
   color: white;
+  padding: 1%;
 }
 a[href="#"]:hover {
   background-color: white;
@@ -38,14 +40,17 @@ a[href="#"]:hover {
   border-radius: 10px;
 }
 #submit-gif {
-  position: relative;
-  bottom: 9%;
+  position: fixed;
+  top: 40%;
+  right: 0%;
+  width: 100%;
 }
-#searchInput{
+#searchInput {
   font-weight: 700;
-  padding: 9px;
+  padding: 0.8%;
   border-radius: 13px;
-  border: 2px solid black;
+  border: 2.2px solid black;
+  width: 45%;
 }
 ::-webkit-input-placeholder { 
   color: dimgray;
@@ -54,12 +59,12 @@ a[href="#"]:hover {
 [type=submit] {
   border-radius: 11px;
   color: black;
-  padding: 7px;
+  padding: 0.44%;
   border: 2px solid black;
   font-family: "rockwell";
   font-weight: 730;
   background-color: white;
-  font-size: 12pt;
+  font-size: large;
 }
 [type=submit]:hover {
   border-radius: 10px;
@@ -86,41 +91,35 @@ a[href="#"]:hover {
 .displayed-gif:hover {
   cursor: pointer;
 }
+#upload-container{
+  position: fixed;
+  top: 40%;
+  width: 100%;
+  right: 0%;
+  height: 6%;
+}
 #form-upload {
   background-image: url(https://i.ibb.co/cNdRDky/unnamed.png);
-  border: 3px solid black;
-  position: sticky;
+  border: 2px solid black;
   color: white;
-  border-radius: 10px;
+  border-radius: 13px;
   cursor: pointer;
-  height: 100%;
-  width: 60%;
-  text-shadow: 3px 3px black;
-  margin-top: 8em;
-  margin-right: 6em;
+  width: 45%;
+  right: 3%;
+  position: relative;
 }
 label {
-  position: absolute;
-  right: 7em;
-  top: 0.3em;
+  position: relative;
   font-size: 23px;
   font-family: "rockwell";
   font-weight: 700;
 }
 #input-upload {
-  z-index: 1000;
-  opacity: 0;
-  cursor: pointer;
-  height: 100%;
-  font-size: 24px;
-  width: 100%;
-}
-#input-upload {
   position: absolute;
   z-index: 1000;
   opacity: 0;
   cursor: pointer;
-  right: 0;
+  right: 0%;
   top: 0;
   height: 100%;
   font-size: 24px;
@@ -128,17 +127,17 @@ label {
 }
 #upload-gif-button {
   font-family: "rockwell";
-  padding: 4px;
-  border-radius: 11px;
+  padding: 1%;
+  border-radius: 13px;
   border: 2px solid black;
   background-color: white;
-  font-size: 25px;
+  font-size: large;
   font-weight: 730;
   color: black;
   position: relative;
-  left: 15em;
+  left: 33.5%;
 }
-#upload-gif-button:hover{
+#upload-gif-button:hover {
   background-color: black;
   color: white;
 }
@@ -167,22 +166,14 @@ text {
   font-family: "rockwell";
 }
 .favourite-button {
-  /* border-radius: 50%;
-  padding: 0.5em;
-  background-color: white;
-  color: black;
-  border: 2px solid black; */
   width: 10%;
   height: 10%;
 }
-.btn-img{
+.btn-img {
   width: 100%;
   height: 100%;
 }
 .favourite-button:hover {
-  /* background-color: black;
-  color: white;
-  border: 2px solid black; */
   cursor: pointer;
 }
 img.btn-img:hover {
@@ -208,7 +199,7 @@ a[target="_blank"]:hover {
   padding: 3% 0 1% 0;
   font-size: 13pt;
 }
-#credentials > text{
+#credentials > text {
   font-size: 14pt;
   font-weight: 600;
   color: dimgray;
@@ -327,7 +318,6 @@ p{
     transform: rotate(360deg);
   }
 }
-
 #toast-container{
   position: absolute;
   top: 14%;

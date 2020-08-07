@@ -24,6 +24,7 @@ const gifView = (url, id, container) => {
  * @param { string } id The GIF's ID.
  * @param { string } username The username of the person, who uploaded the GIF.
  * @param { string } title The GIF's title.
+ * @param { string } datetime The GIF's import time.
  * @param { string } originalUrl URL of the GIF in https://giphy.com/.
  * @param { string } container Container to append the new <div> to.
  * @return { JQuery } The appended container.
@@ -66,19 +67,21 @@ const singleGifView = (url, id, username, title, datetime, originalUrl, containe
 const uploadView = (container) => {
   const $div = $(container);
   $div.empty();
-  return $div.append(
-      $('<div>')
-          .attr('id', 'form-upload')
-          .append($('<label>').text('Choose your awesome GIF...'))
-          .append($('<input>')
-              .attr('id', 'input-upload')
-              .attr('type', 'file')
-          )
-          .append($('<button>')
-              .attr('id', 'upload-gif-button')
-              .text('Upload')
-          )
-  )
+  return $div.append($('<div>')
+      .attr('id', 'upload-container')
+      .append($('<div>')
+        .attr('id', 'form-upload')
+        .append($('<label>').text('Choose your awesome GIF...'))
+        .append($('<input>')
+          .attr('id', 'input-upload')
+          .attr('type', 'file')
+        )
+        .append($('<button>')
+          .attr('id', 'upload-gif-button')
+          .text('Upload')
+        )
+      )
+    )
 }
 
 /**
