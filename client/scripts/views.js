@@ -46,13 +46,13 @@ const singleGifView = (url, id, username, title, originalUrl, container) => {
           .append($('<text>').text(username)))
       .append($('<div>')
           .attr('id', 'fav-and-link')
-          .append($('<button>')
-              .addClass('favourite-button')
-              .text('❤'))
           .append($('<a>')
               .attr('href', originalUrl)
               .attr('target', '_blank')
-              .text('Link to Giphy'))))
+              .text('Link to Giphy')))
+              .append($('<div>')
+              .addClass('favourite-button')
+              .append($('<img>').addClass('btn-img').attr('src', 'https://www.freepnglogos.com/uploads/heart-png/emoji-heart-33.png'))))
 }
 
 /**

@@ -21,7 +21,8 @@ import {
 import {
   displayTrendingGifs,
   displaySearchedGifs,
-  displaySingleGif
+  displaySingleGif,
+  displayRandom
 } from './display.js';
 
 import {
@@ -102,7 +103,7 @@ const doubleClickLikeCallback = () => {
 const displayFavouritesCallback = (ev) => {
   ev.preventDefault();
   localStorage.setItem('currentTab', 'favourite');
-  checkValuesInLocalStorageByKey('favourite');
+  checkValuesInLocalStorageByKey('favourite');  
 }
 
 /**
