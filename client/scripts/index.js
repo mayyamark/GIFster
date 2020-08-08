@@ -30,7 +30,7 @@ import {
   scrollingCallback
 } from './callbacks.js';
 
-import { displayTrendingGifs } from './display.js';
+import { displayTrendingGifs, displaySearchedGifs } from './display.js';
 
 $(() => {
   displayTrendingGifs();

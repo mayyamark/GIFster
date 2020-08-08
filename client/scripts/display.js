@@ -53,6 +53,7 @@ export const displaySearchedGifs = async (searchValue, offset = 0) => {
     searchView($mainDiv);
     toastr.error(`Used keyword: ${searchValue}`, 'No matches!');
   } else {
+    $mainDiv.append(`<h1 id="search-text">Search results:`);
     toastr.success(`Used keyword: ${searchValue}`, 'We found these cool GIFs!');
   }
 
@@ -88,6 +89,7 @@ export const displayGifsByGivenIds = async (arrayOfIds) => {
   }
 
   $mainDiv.empty();
+  $mainDiv.append(`<h1 id="favs-text">Your GIFs in this section:`);
 
   const singleGif = arrayOfpromises.map((el) => getFavouriteGifInfo(el));
 

@@ -9,7 +9,8 @@
  */
 export const gifView = (url, id, container) => {
   const $div = $(container);
-  return $div.append($('<div>')
+  return $div
+    .append($('<div>')
       .addClass('displayed-gif')
       .css('display', 'inline-block')
       .append($('<img>')
@@ -67,14 +68,15 @@ export const singleGifView = (url, id, username, title, datetime, originalUrl, c
 export const searchView = (container) => {
   const $div = $(container);
   $div.empty();
-    return $div.append(
-      $('<form>')
+    return $div
+      .append(($('<h1>')).text('You can browse GIFs by a keyword! Try!'))
+      .append($('<form>')
         .attr('id', 'submit-gif')
         .css('display', 'inline-block')
         .append($('<input>')
           .attr('type', 'text')
           .attr('id', 'searchInput')
-          .attr('placeholder', 'Search by a keyword..'))
+          .attr('placeholder', 'Type a keyword..'))
         .append($('<button>')
           .attr('type', 'submit')
           .text('Search'))
@@ -89,7 +91,9 @@ export const searchView = (container) => {
 export const uploadView = (container) => {
   const $div = $(container);
   $div.empty();
-  return $div.append($('<div>')
+  return $div
+    .append(($('<h1>')).text('Here you can select and upload your GIF!'))
+    .append($('<div>')
       .attr('id', 'upload-container')
       .append($('<div>')
         .attr('id', 'form-upload')
