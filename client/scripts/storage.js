@@ -11,7 +11,7 @@ import { getItemFromLocalStorageByKey } from './extract-data.js'
  * If the ID excists already, this ID is deleted from localStorage.
  * @param { string } gifId The favourited GIF's ID.
  */
-const saveFavouriteGifIdLocalStorageById = (gifId) => {
+export const saveFavouriteGifIdLocalStorageById = (gifId) => {
   let currentFavourites = getItemFromLocalStorageByKey('favourite');
 
   if (currentFavourites === '' || currentFavourites === null) {
@@ -35,7 +35,7 @@ const saveFavouriteGifIdLocalStorageById = (gifId) => {
  * Saves uploaded GIF's ID in localStorage
  * @param { string } uploadedGifId The uploaded GIF's ID.
  */
-const saveUploadedGifIdToLocalStorage = (uploadedGifId) => {
+export const saveUploadedGifIdToLocalStorage = (uploadedGifId) => {
   let currentUploads = getItemFromLocalStorageByKey('upload');
   if (currentUploads === '' || currentUploads === null) {
     localStorage.setItem('upload', uploadedGifId);
@@ -53,7 +53,7 @@ const saveUploadedGifIdToLocalStorage = (uploadedGifId) => {
  * would be displayed.
  * @param { string } key The key to search for in localStorage.
  */
-const checkValuesInLocalStorageByKey = (key) => {
+export const checkValuesInLocalStorageByKey = (key) => {
   const stringOfIds = localStorage.getItem(key);
   if (stringOfIds === '' || stringOfIds === null) {
     displayRandom();
@@ -63,9 +63,4 @@ const checkValuesInLocalStorageByKey = (key) => {
   }
 }
 
-export {
-  saveFavouriteGifIdLocalStorageById,
-  saveUploadedGifIdToLocalStorage,
-  checkValuesInLocalStorageByKey
-};
 

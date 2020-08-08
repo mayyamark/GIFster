@@ -12,7 +12,7 @@ import {
  * @param {number} [offset=0] Offset used for loading Gifs skipping the first some
  * @return { Promise } Promise object represents the information as JSON.
  */
-const getTrendingGifsByLimit = async (offset=0) => {
+export const getTrendingGifsByLimit = async (offset=0) => {
   const response = await fetch(`${baseURL}trending?api_key=${API_KEY}&offset=${offset}&limit=40`);
   return response.json();
 }
@@ -25,7 +25,7 @@ const getTrendingGifsByLimit = async (offset=0) => {
  * @param {number} [offset=0] Offset used for loading Gifs skipping the first some
  * @return { Promise } Promise object represents the information as JSON.
  */
-const getSearchedGifsByLimit = async (searchValue, offset=0) => {
+export const getSearchedGifsByLimit = async (searchValue, offset=0) => {
   const response = await fetch(`${baseURL}search?api_key=${API_KEY}&q=${searchValue}&offset=${offset}&limit=40`);
 
   return response.json();
@@ -38,7 +38,7 @@ const getSearchedGifsByLimit = async (searchValue, offset=0) => {
  * @param { string } id The GIF's ID.
  * @return { Promise } Promise object represents the information as JSON.
  */
-const getGifInfo = async (id) => {
+export const getGifInfo = async (id) => {
   const response = await fetch(`${baseURL}${id}?api_key=${API_KEY}`);
 
   return response.json();
@@ -50,7 +50,7 @@ const getGifInfo = async (id) => {
  * @function getRandomGif
  * @return { Promise } Promise object represents the information as JSON.
  */
-const getRandomGif = async () => {
+export const getRandomGif = async () => {
   const response = await fetch(`${baseURL}random?api_key=${API_KEY}`);
   return response.json();
 }
@@ -62,18 +62,10 @@ const getRandomGif = async () => {
  * @param { FormData } gifFormData The GIF as FormData.
  * @return { Promise } Promise object represents the response's information as JSON.
  */
-const uploadGif = async (gifFormData) => {
+export const uploadGif = async (gifFormData) => {
   const response = await fetch(`${uploadURL}?api_key=${API_KEY}`, {
     method: 'POST',
     body: gifFormData
   })
   return response.json();
-}
-
-export {
-  getTrendingGifsByLimit,
-  getSearchedGifsByLimit,
-  getRandomGif,
-  getGifInfo,
-  uploadGif
 }

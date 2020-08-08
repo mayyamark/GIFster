@@ -4,7 +4,7 @@
  * @param { JSON } response JSON object to extract the URLs from.
  * @return { array } Array of URLs of GIFs with fixed height and GIFs' IDs.
  */
-const getTrendingGifsInfo = (response) => {
+export const getTrendingGifsInfo = (response) => {
   const { data } = response;
   return data.map((el) => [el.images.fixed_height_downsampled.url, el.id]);
 }
@@ -15,7 +15,7 @@ const getTrendingGifsInfo = (response) => {
  * @return { array } Array, which contains original URL of the GIF, the usernames,
  * who uploaded the GIF, the title of the GIF and the URL of the GIF.
  */
-const getSingleGifInfo = (response) => {
+export const getSingleGifInfo = (response) => {
   const { data } = response;
 
   return [data.images.original.url, data.id, data.username, data.title, data.import_datetime, data.url]
@@ -26,7 +26,7 @@ const getSingleGifInfo = (response) => {
  * @param { JSON } response JSON object to extract the information from.
  * @return { array } Array, which contains the URL of the GIF with fixed height and the ID of the GIF.
  */
-const getFavouriteGifInfo = (response) => {
+export const getFavouriteGifInfo = (response) => {
   const { data } = response;
 
   return [data.images.fixed_height_downsampled.url, data.id]
@@ -37,7 +37,7 @@ const getFavouriteGifInfo = (response) => {
  * @param { JSON } response JSON object to extract ID from.
  * @return { string } The gif's ID.
  */
-const getUploadedGifId = (response) => {
+export const getUploadedGifId = (response) => {
   const { data: { id } } = response;
   return id;
 }
@@ -48,7 +48,7 @@ const getUploadedGifId = (response) => {
  * @param { string } attr The attribute's name.
  * @return { string } The extracted value.
  */
-const getValueByAttr = (container, attr) => {
+export const getValueByAttr = (container, attr) => {
   const value = container.attr(attr);
   return value;
 }
@@ -58,7 +58,7 @@ const getValueByAttr = (container, attr) => {
  * @param { JQuery } container The jQuery object of <input> element with type "file".
  * @return { FormData } The created FormData.
  */
-const createFormData = (container) => {
+export const createFormData = (container) => {
   const gifFormInput = container[0].files[0];
   const gifFormData = new FormData();
   gifFormData.append('file', gifFormInput);
@@ -70,7 +70,7 @@ const createFormData = (container) => {
  * @param { string } key The key's name.
  * @return { string } The extracted value.
  */
-const getItemFromLocalStorageByKey = (key) => {
+export const getItemFromLocalStorageByKey = (key) => {
   return localStorage.getItem(key);
 }
 
@@ -79,17 +79,6 @@ const getItemFromLocalStorageByKey = (key) => {
  * @param { JQuery } container The jQuery container.
  * @return { FormData } The value of the container.
  */
-const getContainerValue = (container) => {
+export const getContainerValue = (container) => {
   return container.val();
-}
-
-export {
-  getTrendingGifsInfo,
-  getSingleGifInfo,
-  getFavouriteGifInfo,
-  getUploadedGifId,
-  getValueByAttr,
-  createFormData,
-  getItemFromLocalStorageByKey,
-  getContainerValue
 }

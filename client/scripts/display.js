@@ -16,6 +16,7 @@ import { $mainDiv } from './constants.js'
 
 import {
   gifView,
+  searchView,
   singleGifView
 } from './views.js';
 
@@ -26,13 +27,14 @@ import {
  * @param {number} [offset = 0] Offset used for loading Gifs skipping the first some.
  * @return { void } Displayed GIFs.
  */
-const displayTrendingGifs = async (offset=0) => {
+export const displayTrendingGifs = async (offset=0) => {
   localStorage.setItem('currentTab', 'trending')
   const jsonTrendingGifs = await getTrendingGifsByLimit(offset);
   const arrayOfTrendingGifsURL = getTrendingGifsInfo(jsonTrendingGifs);
 
   return arrayOfTrendingGifsURL.forEach((el) => gifView(el[0], el[1], $mainDiv));
 }
+
 /**
  * Displays the searched GIFs by a keyword.
  * @async
@@ -41,14 +43,15 @@ const displayTrendingGifs = async (offset=0) => {
  *  @param {number} [offset = 0] Offset used for loading Gifs skipping the first some
  * @return { void } displayed GIFs.
  */
-const displaySearchedGifs = async (searchValue, offset = 0) => {
+export const displaySearchedGifs = async (searchValue, offset = 0) => {
   localStorage.setItem('currentTab', 'search')
   const jsonSearchedGifs = await getSearchedGifsByLimit(searchValue, offset);
   const arrayOfSearchedGifsURL = getTrendingGifsInfo(jsonSearchedGifs);
   $('#searchInput').val('');
 
   if (arrayOfSearchedGifsURL.length === 0) {
-    toastr.error(`Used keyword: ${searchValue}`, 'No matches!')
+    searchView($mainDiv);
+    toastr.error(`Used keyword: ${searchValue}`, 'No matches!');
   } else {
     toastr.success(`Used keyword: ${searchValue}`, 'We found these cool GIFs!');
   }
@@ -63,7 +66,7 @@ const displaySearchedGifs = async (searchValue, offset = 0) => {
  * @param { string } searchValue The GIF's ID.
  * @return { void } displayed GIFs.
  */
-const displaySingleGif = async (searchValue) => {
+export const displaySingleGif = async (searchValue) => {
   const jsonSingleGif = await getGifInfo(searchValue);
   const singleGif = getSingleGifInfo(jsonSingleGif);
 
@@ -77,7 +80,7 @@ const displaySingleGif = async (searchValue) => {
  * @param { array } arrayOfIds The GIF's ID.
  * @return { void } displayed GIFs.
  */
-const displayGifsByGivenIds = async (arrayOfIds) => {
+export const displayGifsByGivenIds = async (arrayOfIds) => {
   const arrayOfpromises = [];
   for (let i = 0; i < arrayOfIds.length; i++) {
     const testing = await getGifInfo(arrayOfIds[i])
@@ -97,7 +100,7 @@ const displayGifsByGivenIds = async (arrayOfIds) => {
  * @function displayRandom
  * @return { void } displayed GIFs.
  */
-const displayRandom = async () => {
+export const displayRandom = async () => {
   toastr.warning('Add some GIFs to this section!', 'Whoopsie, nothing to show...');
 
   $mainDiv.empty();
@@ -107,10 +110,3 @@ const displayRandom = async () => {
   return gifView(randomGifUrl[0], randomGifUrl[1], $mainDiv);
 }
 
-export {
-  displayTrendingGifs,
-  displaySearchedGifs,
-  displaySingleGif,
-  displayGifsByGivenIds,
-  displayRandom
-};
