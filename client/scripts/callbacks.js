@@ -2,6 +2,7 @@
 /* eslint-disable max-len */
 import {
   uploadView,
+  searchView,
   removingView,
   loadingView,
 } from './views.js'
@@ -39,7 +40,7 @@ let SearchOffset = 40;
  * Displays new 40 GIFs when scrolling down the page.
  * @function scrollingCallback
  */
-const scrollingCallback = () => {
+export const scrollingCallback = () => {
   if ($(window).scrollTop() === $(document).height() - $(window).height()) {
     const currentTab = localStorage.getItem('currentTab');
     if (currentTab === 'trending') {
@@ -58,7 +59,7 @@ const scrollingCallback = () => {
  * @function displayTrendingCallback
  * @param { string } ev
  */
-const displayTrendingCallback = (ev) => {
+export const displayTrendingCallback = (ev) => {
   ev.preventDefault();
 
   $mainDiv.empty();
@@ -67,11 +68,21 @@ const displayTrendingCallback = (ev) => {
 }
 
 /**
+ * Displays searching input on the page.
+ * @function displaySearchInputCallback
+ * @param { string } ev
+ */
+export const displaySearchInputCallback = (ev) => {
+  ev.preventDefault();
+  searchView($mainDiv);
+}
+
+/**
  * Displays 40 GIFs, searched by a keyword, on the page.
  * @function displayTrendingCallback
  * @param { string } ev
  */
-const displaySearchedCallback = (ev) => {
+export const displaySearchedCallback = (ev) => {
   ev.preventDefault();
   const searchWord = getContainerValue($('#searchInput'));
   if (searchWord.length !== 0) {
@@ -90,7 +101,7 @@ const displaySearchedCallback = (ev) => {
  * Favourites a GIF when doubleclicked on it.
  * @function doubleClickLikeCallback
  */
-const doubleClickLikeCallback = () => {
+export const doubleClickLikeCallback = () => {
   const gifId = getValueByAttr($('.current-gif'), 'alt');
   saveFavouriteGifIdLocalStorageById(gifId);
 }
@@ -100,7 +111,7 @@ const doubleClickLikeCallback = () => {
  * @function displayFavouritesCallback
  * @param { string } ev
  */
-const displayFavouritesCallback = (ev) => {
+export const displayFavouritesCallback = (ev) => {
   ev.preventDefault();
   localStorage.setItem('currentTab', 'favourite');
   checkValuesInLocalStorageByKey('favourite');  
@@ -111,7 +122,7 @@ const displayFavouritesCallback = (ev) => {
  * @function displayUploadInputCallback
  * @param { string } ev
  */
-const displayUploadInputCallback = (ev) => {
+export const displayUploadInputCallback = (ev) => {
   ev.preventDefault();
   localStorage.setItem('currentTab', 'Upload');
   uploadView($mainDiv);
@@ -122,7 +133,7 @@ const displayUploadInputCallback = (ev) => {
  * @function displayUploadInputCallback
  * @param { string } ev
  */
-const displayMyUploadsCallback = (ev) => {
+export const displayMyUploadsCallback = (ev) => {
   ev.preventDefault();
   localStorage.setItem('currentTab', 'myUpload');
   checkValuesInLocalStorageByKey('upload');
@@ -133,7 +144,7 @@ const displayMyUploadsCallback = (ev) => {
  * @function clickAnywhereToCloseCallback
  * @param { string } ev
  */
-const clickAnywhereToCloseCallback = (ev) => {
+export const clickAnywhereToCloseCallback = (ev) => {
   const $arrTest = $(ev.target).parentsUntil($('main'));
   const searchedId = getValueByAttr($($arrTest[$arrTest.length - 4]), 'id');
   const test = getValueByAttr($(ev.target), 'id');
@@ -144,7 +155,7 @@ const clickAnywhereToCloseCallback = (ev) => {
  * Saves a favourited GIF's ID in localStorage.
  * @function favouriteAGifCallback
  */
-const favouriteAGifCallback = () => {
+export const favouriteAGifCallback = () => {
   const gifId = getValueByAttr($('.current-gif'), 'alt');
   saveFavouriteGifIdLocalStorageById(gifId);
 }
@@ -154,7 +165,7 @@ const favouriteAGifCallback = () => {
  * @function clickAnywhereToCloseCallback
  * @param { string } ev
  */
-const displaySingleCallback = (ev) => {
+export const displaySingleCallback = (ev) => {
   const gifId = getValueByAttr($(ev.target), 'alt');
   displaySingleGif(gifId);
 }
@@ -164,7 +175,7 @@ const displaySingleCallback = (ev) => {
  * @async
  * @function clickAnywhereToCloseCallback
  */
-const uploadGifCallback = async () => {
+export const uploadGifCallback = async () => {
   if ($('#input-upload').get(0).files.length !== 0) {
     const gifFormData = createFormData($('#input-upload'));
     loadingView($mainDiv);
@@ -180,16 +191,4 @@ const uploadGifCallback = async () => {
     toastr.error('No GIF selected.', 'Oh, nooo!');
   }
 }
-export {
-  displaySingleCallback,
-  favouriteAGifCallback,
-  uploadGifCallback,
-  clickAnywhereToCloseCallback,
-  displayMyUploadsCallback,
-  displayUploadInputCallback,
-  displayFavouritesCallback,
-  doubleClickLikeCallback,
-  displaySearchedCallback,
-  displayTrendingCallback,
-  scrollingCallback
-};
+

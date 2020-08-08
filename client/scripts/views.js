@@ -7,7 +7,7 @@
  * @param { JQuery } container Container to append the GIF to.
  * @return { JQuery } The appended container.
  */
-const gifView = (url, id, container) => {
+export const gifView = (url, id, container) => {
   const $div = $(container);
   return $div.append($('<div>')
       .addClass('displayed-gif')
@@ -29,7 +29,7 @@ const gifView = (url, id, container) => {
  * @param { string } container Container to append the new <div> to.
  * @return { JQuery } The appended container.
  */
-const singleGifView = (url, id, username, title, datetime, originalUrl, container) => {
+export const singleGifView = (url, id, username, title, datetime, originalUrl, container) => {
   const $div = $(container);
   const date = moment(datetime).format('MMMM Do YYYY');
   return $div.append($('<div>')
@@ -64,7 +64,29 @@ const singleGifView = (url, id, username, title, datetime, originalUrl, containe
  * @param { JQuery } container Container to append the <div> to.
  * @return { JQuery } The appended container.
  */
-const uploadView = (container) => {
+export const searchView = (container) => {
+  const $div = $(container);
+  $div.empty();
+    return $div.append(
+      $('<form>')
+        .attr('id', 'submit-gif')
+        .css('display', 'inline-block')
+        .append($('<input>')
+          .attr('type', 'text')
+          .attr('id', 'searchInput')
+          .attr('placeholder', 'Search by a keyword..'))
+        .append($('<button>')
+          .attr('type', 'submit')
+          .text('Search'))
+    )
+};
+
+/**
+ * Creates a new <div> element, appended to the specified container.
+ * @param { JQuery } container Container to append the <div> to.
+ * @return { JQuery } The appended container.
+ */
+export const uploadView = (container) => {
   const $div = $(container);
   $div.empty();
   return $div.append($('<div>')
@@ -91,7 +113,7 @@ const uploadView = (container) => {
  * @param { string } id2 The first ID to check.
  * @param { string } id3 The second ID to check.
  */
-const removingView = (id, id2, id3) => {
+export const removingView = (id, id2, id3) => {
   const $toRemove = $(`#${id}`);
   if (id2 !== id && id3 !== id) {
     $toRemove.remove();
@@ -103,15 +125,8 @@ const removingView = (id, id2, id3) => {
  * @param { JQuery } container Container to append the <div> to.
  * @return { JQuery } The appended container.
  */
-const loadingView = (container) => {
+export const loadingView = (container) => {
   const $div = $(container);
   return $div.append('<div id=loading-container><div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>')
 }
 
-export {
-  gifView,
-  uploadView,
-  singleGifView,
-  removingView,
-  loadingView
-};
