@@ -177,19 +177,23 @@ export const displaySingleCallback = (ev) => {
  * @function clickAnywhereToCloseCallback
  */
 export const uploadGifCallback = async () => {
-  if ($('#input-upload').get(0).files.length !== 0) {
-    const gifFormData = createFormData($('#input-upload'));
-    loadingView($mainDiv);
+  try {
+    if ($('#input-upload').get(0).files.length !== 0) {
+      const gifFormData = createFormData($('#input-upload'));
+      loadingView($mainDiv);
 
-    const response = await uploadGif(gifFormData);
-    const uploadedGifId = getUploadedGifId(response);
+      const response = await uploadGif(gifFormData);
+      const uploadedGifId = getUploadedGifId(response);
 
-    uploadView($mainDiv);
-    toastr.success('Go to MyUploads now...', 'Success!');
+      uploadView($mainDiv);
+      toastr.success('Go to MyUploads now...', 'Success!');
 
-    saveUploadedGifIdToLocalStorage(uploadedGifId);
-  } else {
-    toastr.error('No GIF selected.', 'Oh, nooo!');
+      saveUploadedGifIdToLocalStorage(uploadedGifId);
+    } else {
+      toastr.error('No GIF selected.', 'Oh, nooo!');
+    }
+  } catch (err) {
+    toastr.error(':(', 'Something went wrong!')
   }
 }
 
