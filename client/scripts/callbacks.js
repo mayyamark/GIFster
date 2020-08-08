@@ -74,6 +74,7 @@ export const displayTrendingCallback = (ev) => {
  */
 export const displaySearchInputCallback = (ev) => {
   ev.preventDefault();
+  localStorage.setItem('currentTab', 'search');
   searchView($mainDiv);
 }
 
@@ -113,8 +114,8 @@ export const doubleClickLikeCallback = () => {
  */
 export const displayFavouritesCallback = (ev) => {
   ev.preventDefault();
-  localStorage.setItem('currentTab', 'favourite');
-  checkValuesInLocalStorageByKey('favourite');  
+  localStorage.setItem('currentTab', 'myFavourites');
+  checkValuesInLocalStorageByKey('myFavourites');  
 }
 
 /**
@@ -124,7 +125,7 @@ export const displayFavouritesCallback = (ev) => {
  */
 export const displayUploadInputCallback = (ev) => {
   ev.preventDefault();
-  localStorage.setItem('currentTab', 'Upload');
+  localStorage.setItem('currentTab', 'upload');
   uploadView($mainDiv);
 }
 
@@ -135,7 +136,7 @@ export const displayUploadInputCallback = (ev) => {
  */
 export const displayMyUploadsCallback = (ev) => {
   ev.preventDefault();
-  localStorage.setItem('currentTab', 'myUpload');
+  localStorage.setItem('currentTab', 'myUploads');
   checkValuesInLocalStorageByKey('upload');
 }
 

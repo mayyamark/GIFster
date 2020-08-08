@@ -11,21 +11,31 @@ import { getItemFromLocalStorageByKey } from './extract-data.js'
  * If the ID excists already, this ID is deleted from localStorage.
  * @param { string } gifId The favourited GIF's ID.
  */
-export const saveFavouriteGifIdLocalStorageById = (gifId) => {
-  let currentFavourites = getItemFromLocalStorageByKey('favourite');
+export const saveFavouriteGifIdLocalStorageById = async (gifId) => {
+  let currentFavourites = getItemFromLocalStorageByKey('myFavourites');
 
   if (currentFavourites === '' || currentFavourites === null) {
-    localStorage.setItem('favourite', gifId);
+    localStorage.setItem('myFavourites', gifId);
     toastr.success('Go to myFavoutites now...', 'Yay! Added to myFavourites!')
   } else {
     const arrayOfFavs = currentFavourites.split(',');
     if (arrayOfFavs.includes(gifId)) {
       const result = arrayOfFavs.filter((el) => el !== gifId).join(',');
-      localStorage.setItem('favourite', result);
+      localStorage.setItem('myFavourites', result);
       toastr.warning(':(', 'Removed from Myfavourites!');
+
+      if (localStorage.getItem('currentTab') === 'myFavourites') {
+        const arrOfIds = localStorage.getItem('myFavourites').split(',');
+        if (result !== '') {
+          displayGifsByGivenIds(arrOfIds);
+        } else {
+          displayRandom();
+        }
+      }
+      
     } else {
       const newString = currentFavourites.concat(',', gifId);
-      localStorage.setItem('favourite', newString);
+      localStorage.setItem('myFavourites', newString);
       toastr.success('Go to myFavoutites now...', 'Yay! Added to myFavourites!')
     }
   }
