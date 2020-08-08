@@ -65,6 +65,8 @@ a[href="#"]:hover {
   font-weight: 730;
   background-color: white;
   font-size: large;
+  left: 0.5%;
+  position: relative;
 }
 [type=submit]:hover {
   border-radius: 10px;
@@ -105,14 +107,15 @@ a[href="#"]:hover {
   border-radius: 13px;
   cursor: pointer;
   width: 45%;
-  right: 3%;
+  right: 2.5%;
   position: relative;
 }
 label {
   position: relative;
-  font-size: 23px;
+  font-size: 100%;
   font-family: "rockwell";
   font-weight: 700;
+  left: 6%;
 }
 #input-upload {
   position: absolute;
@@ -135,7 +138,7 @@ label {
   font-weight: 730;
   color: black;
   position: relative;
-  left: 33.5%;
+  left: 40.5%;
 }
 #upload-gif-button:hover {
   background-color: black;
