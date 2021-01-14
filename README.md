@@ -1,45 +1,44 @@
-**Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**
+I was assigned to design and implement a Gifs SPA application for searching and sharing funny gifs with your friends. The application should be able to display the top trending gifs, upload gifs and much more! For our purposes we are going to use the Giphy API.
 
-When you're done, you can delete the content in this README and update the file with details for others getting started with your repository.
+# Functionalities:
 
-*We recommend that you open this README in another tab as you perform the tasks below. You can [watch our video](https://youtu.be/0ocf7u76WSo) for a full demo of all the steps in this tutorial. Open the video in a new tab to avoid leaving Bitbucket.*
+1. **Display Trending Gifs**
 
----
+The application has a display trending gifs functionality, that allows the user to see the top trending gifs. I used the trending endpoint.
 
-## Edit a file
+2. **Search Gifs**
 
-You’ll start by editing this README file to learn how to edit a file in Bitbucket.
+The application has a search gifs functionality, that allows the user to search gifs by a given query. I used the search endpoint and a search query – q, provided by the user.
 
-1. Click **Source** on the left side.
-2. Click the README.md link from the list of files.
-3. Click the **Edit** button.
-4. Delete the following text: *Delete this line to make a change to the README from Bitbucket.*
-5. After making your change, click **Commit** and then **Commit** again in the dialog. The commit page will open and you’ll see the change you just made.
-6. Go back to the **Source** page.
+3. **Display Gif Details**
 
----
+The application has a display gif details functionality, that allows the user to see a given gif’s detailed information like uploaded user’s username. I used the get-gif-by-id endpoint.
 
-## Create a file
+4. **Upload a Gif**
 
-Next, you’ll add a new file to this repository.
+The application has an upload gif functionality, that allows the user to upload a gif from his file system. I used the upload endpoint with POST request. After the upload, you can see the uploaded gif in your Giphy Channel.
 
-1. Click the **New file** button at the top of the **Source** page.
-2. Give the file a filename of **contributors.txt**.
-3. Enter your name in the empty file space.
-4. Click **Commit** and then **Commit** again in the dialog.
-5. Go back to the **Source** page.
 
-Before you move on, go ahead and explore the repository. You've already seen the **Source** page, but check out the **Commits**, **Branches**, and **Settings** pages.
+5. **Display Uploaded Gifs**
 
----
+The application has a display uploaded gifs functionality, that allows the user to see his uploaded gifs.
 
-## Clone a repository
+6. **Favorite a Gif**
 
-Use these steps to clone from SourceTree, our client for using the repository command-line free. Cloning allows you to work on your files locally. If you don't yet have SourceTree, [download and install first](https://www.sourcetreeapp.com/). If you prefer to clone from the command line, see [Clone a repository](https://confluence.atlassian.com/x/4whODQ).
+The application has a favorite gif functionality, that allows the user to make a gif his favorite. If the user hasn’t chosen a favorite gif yet, he is notified, and a random gif will be shown as a favorite.
 
-1. You’ll see the clone button under the **Source** heading. Click that button.
-2. Now click **Check out in SourceTree**. You may need to create a SourceTree account or log in.
-3. When you see the **Clone New** dialog in SourceTree, update the destination path and name if you’d like to and then click **Clone**.
-4. Open the directory you just created to see your repository’s files.
+# General Requirements
 
-Now that you're more familiar with your Bitbucket repository, go ahead and add a new file locally. You can [push your change back to Bitbucket with SourceTree](https://confluence.atlassian.com/x/iqyBMg), or you can [add, commit,](https://confluence.atlassian.com/x/8QhODQ) and [push from the command line](https://confluence.atlassian.com/x/NQ0zDQ).
+- I had to use jQuery for DOM manipulations.
+
+- I had to use ESLint to write consistently styled code.
+
+- I had to use modules and they should be single-responsible.
+
+- I had to document my code explicitly following the JSDoc standard.
+
+- I had to use correct naming and write clean, self-documenting code.
+
+- I had to have an usable user interface.
+
+- I had to use the latest features of ECMAScript.
