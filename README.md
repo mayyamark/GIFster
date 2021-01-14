@@ -42,3 +42,13 @@ The application has a favorite gif functionality, that allows the user to make a
 - I had to have an usable user interface.
 
 - I had to use the latest features of ECMAScript.
+
+# Running Guide
+To run this application, first you need to install a npm package, such as [http-server](https://www.npmjs.com/package/http-server) or [live-server](https://www.npmjs.com/package/live-server). Then open the client directory in your Terminal and type the following command:
+```
+http-server .
+```
+or
+```
+live-server .
+```
